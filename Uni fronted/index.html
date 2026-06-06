@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniSocial - Universidad San Buenaventura</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="mobile-overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+      </div>
+      <div class="logo-text">Uni<span>Social</span><br><small style="font-weight:400;font-size:10px;color:var(--gray)">San Buenaventura</small></div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-item active" onclick="showPage('inicio')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        Inicio
+      </div>
+      <div class="nav-item" onclick="showPage('perfil')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        Perfil
+      </div>
+      <div class="nav-item" onclick="showPage('grupos')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        Grupos
+      </div>
+      <div class="nav-item" onclick="showPage('mensajes')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        Mensajes
+        <span class="badge">3</span>
+      </div>
+      <div class="nav-item" onclick="showPage('notificaciones')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+        Notificaciones
+        <span class="badge">5</span>
+      </div>
+      <div class="nav-item" onclick="showPage('eventos')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        Eventos
+        <span class="badge">2</span>
+      </div>
+      <div class="nav-item" onclick="showPage('buscar')">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        Buscar personas
+      </div>
+    </nav>
+
+    <button class="new-post-btn" onclick="showPage('inicio')">
+      <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+      Nueva publicación
+    </button>
+
+    <div class="sidebar-user" onclick="showPage('perfil')">
+      <div class="avatar" id="sidebarAvatar" style="background:#E0834A">JD</div>
+      <div class="user-info">
+        <div class="user-name">Juan Díaz</div>
+        <div class="user-sub">Ing. de Sistemas · @juandiaz</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <button class="hamburger" onclick="toggleSidebar()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      </button>
+      <span class="page-title" id="pageTitle">Inicio</span>
+      <div class="topbar-search">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" placeholder="Buscar en UniSocial...">
+      </div>
+    </div>
+
+    <div class="content-area">
+      <div class="feed">
+
+        <!-- INICIO -->
+        <div class="page active" id="page-inicio">
+          <!-- COMPOSER -->
+          <div class="composer">
+            <div class="composer-row">
+              <div class="avatar" id="composerAvatar" style="background:#E0834A;flex-shrink:0">JD</div>
+              <textarea id="postTextarea" placeholder="¿Qué está pasando en la U?" rows="1" oninput="autoGrow(this)"></textarea>
+            </div>
+            <div class="composer-actions">
+              <div class="composer-icons">
+                <label class="icon-btn" title="Imagen" style="cursor:pointer">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                  <input type="file" id="postImageInput" accept="image/*" style="display:none" onchange="previewPostImage(event)">
+                </label>
+              </div>
+              <div id="postImagePreviewWrap" style="display:none;margin:0 8px;position:relative">
+                <img id="postImagePreview" style="height:44px;border-radius:8px;object-fit:cover;max-width:80px">
+                <button onclick="removePostImage()" style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;border-radius:50%;background:#ff4444;color:white;border:none;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1">✕</button>
+              </div>
+              <button class="btn-orange" onclick="publishPost()">Publicar</button>
+            </div>
+          </div>
+
+          <!-- FEED DINÁMICO -->
+          <div id="feedContainer"></div>
+        </div>
+
+        <!-- PERFIL -->
+        <div class="page" id="page-perfil">
+          <div class="profile-card">
+            <div class="profile-cover"></div>
+            <div class="profile-info">
+              <div style="display:flex;justify-content:space-between;align-items:flex-end">
+                <div class="profile-avatar-wrap" onclick="document.getElementById('avatarInput').click()" title="Cambiar foto" style="cursor:pointer">
+                  <div class="profile-avatar" id="profileAvatar" style="background:#E0834A">JD</div>
+                  <div class="avatar-edit-overlay">
+                    <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M12 15.2A3.2 3.2 0 0 1 8.8 12 3.2 3.2 0 0 1 12 8.8 3.2 3.2 0 0 1 15.2 12 3.2 3.2 0 0 1 12 15.2M18.5 1.5H17L15.5 0h-7L7 1.5H5.5A2 2 0 0 0 3.5 3.5v14A2 2 0 0 0 5.5 19.5h13A2 2 0 0 0 20.5 17.5v-14A2 2 0 0 0 18.5 1.5M12 17A5 5 0 0 1 7 12 5 5 0 0 1 12 7 5 5 0 0 1 17 12 5 5 0 0 1 12 17Z"/></svg>
+                    <span style="font-size:10px;margin-top:2px">Cambiar foto</span>
+                  </div>
+                </div>
+                <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="handleAvatarUpload(event)">
+                <button class="btn-outline" style="margin-bottom:8px">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                  Editar perfil
+                </button>
+              </div>
+              <div class="profile-name">Juan Díaz</div>
+              <div class="profile-role">
+                <span class="role-tag tag-ingenieria">Ing. de Sistemas</span>
+                <span style="font-size:12px;color:var(--gray)">Semestre 8 · Universidad San Buenaventura</span>
+              </div>
+              <p class="profile-bio">Apasionado por el desarrollo web y la inteligencia artificial. Siempre buscando aprender nuevas tecnologías y compartir conocimiento con la comunidad.</p>
+              <div style="margin-bottom:16px">
+                <div style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--gray-dark)">Habilidades y aptitudes</div>
+                <div style="display:flex;flex-wrap:wrap;gap:6px">
+                  <span style="background:var(--orange-light);color:var(--orange);font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px">React.js</span>
+                  <span style="background:var(--orange-light);color:var(--orange);font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px">Node.js</span>
+                  <span style="background:var(--orange-light);color:var(--orange);font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px">Python</span>
+                  <span style="background:var(--orange-light);color:var(--orange);font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px">Machine Learning</span>
+                  <span style="background:var(--orange-light);color:var(--orange);font-size:12px;font-weight:600;padding:4px 10px;border-radius:99px">Bases de datos</span>
+                </div>
+              </div>
+              <div class="profile-stats">
+                <div class="stat"><div class="stat-num">42</div><div class="stat-label">Publicaciones</div></div>
+                <div class="stat"><div class="stat-num">234</div><div class="stat-label">Seguidores</div></div>
+                <div class="stat"><div class="stat-num">189</div><div class="stat-label">Seguidos</div></div>
+              </div>
+            </div>
+            <div class="profile-tabs">
+              <div class="profile-tab active" onclick="switchProfileTab(this,'pub')">Publicaciones</div>
+              <div class="profile-tab" onclick="switchProfileTab(this,'grupos')">Grupos</div>
+              <div class="profile-tab" onclick="switchProfileTab(this,'act')">Actividad</div>
+            </div>
+            <div style="padding:16px">
+              <div id="tab-pub">
+                <div class="post-item"><p class="post-item-text">Publicación de ejemplo 1. Contenido interesante sobre tecnología y desarrollo.</p><div class="post-item-meta"><span>💬 5 comentarios</span><span>❤️ 12 reacciones</span><span>hace 2 días</span></div></div>
+                <div class="post-item"><p class="post-item-text">Publicación de ejemplo 2. Contenido interesante sobre tecnología y desarrollo.</p><div class="post-item-meta"><span>💬 5 comentarios</span><span>❤️ 12 reacciones</span><span>hace 2 días</span></div></div>
+                <div class="post-item"><p class="post-item-text">Publicación de ejemplo 3. Contenido interesante sobre tecnología y desarrollo.</p><div class="post-item-meta"><span>💬 5 comentarios</span><span>❤️ 12 reacciones</span><span>hace 2 días</span></div></div>
+              </div>
+              <div id="tab-grupos" style="display:none">
+                <div class="post-item"><p class="post-item-text">🖥️ Desarrollo Web Moderno — 234 miembros</p></div>
+                <div class="post-item"><p class="post-item-text">🤖 Inteligencia Artificial — 189 miembros</p></div>
+                <div class="post-item"><p class="post-item-text">🚀 Emprendimiento Tech — 156 miembros</p></div>
+              </div>
+              <div id="tab-act" style="display:none">
+                <div class="post-item"><p class="post-item-text">Se unió al grupo <strong>Redes Neuronales</strong></p><div class="post-item-meta"><span>hace 3 días</span></div></div>
+                <div class="post-item"><p class="post-item-text">Reaccionó a la publicación de María González</p><div class="post-item-meta"><span>hace 4 días</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRUPOS -->
+        <div class="page" id="page-grupos">
+          <div class="section-title">Mis grupos</div>
+          <div class="groups-grid">
+            <div class="my-group-card">
+              <div class="group-header-icon">DW</div>
+              <h4>Desarrollo Web Moderno</h4>
+              <div class="members">234 miembros</div>
+              <button class="btn-view" onclick="showPage('grupo-detalle')">Ver grupo</button>
+            </div>
+            <div class="my-group-card">
+              <div class="group-header-icon" style="background:#4A90D9">IA</div>
+              <h4>Inteligencia Artificial</h4>
+              <div class="members">189 miembros</div>
+              <button class="btn-view">Ver grupo</button>
+            </div>
+            <div class="my-group-card">
+              <div class="group-header-icon" style="background:#5CB85C">ET</div>
+              <h4>Emprendimiento Tech</h4>
+              <div class="members">156 miembros</div>
+              <button class="btn-view">Ver grupo</button>
+            </div>
+          </div>
+
+          <div class="section-title">Explorar grupos</div>
+          <div class="filter-chips">
+            <div class="chip active">Todos</div>
+            <div class="chip">Ingeniería</div>
+            <div class="chip">Ciencias</div>
+            <div class="chip">Arte</div>
+            <div class="chip">Humanidades</div>
+            <div class="chip">Deportes</div>
+          </div>
+          <div class="explore-grid">
+            <div class="explore-card">
+              <div class="explore-card-top">
+                <div class="group-avatar" style="background:#7C3AED;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px">RN</div>
+                <div><div class="explore-card-name">Redes Neuronales</div><div class="explore-card-cat">Ingeniería</div></div>
+              </div>
+              <div class="explore-card-foot"><span class="explore-card-members"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>198 miembros</span><button class="btn-join">Unirse</button></div>
+            </div>
+            <div class="explore-card">
+              <div class="explore-card-top">
+                <div class="group-avatar" style="background:#059669;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px">QO</div>
+                <div><div class="explore-card-name">Química Orgánica</div><div class="explore-card-cat">Ciencias</div></div>
+              </div>
+              <div class="explore-card-foot"><span class="explore-card-members">167 miembros</span><button class="btn-join">Unirse</button></div>
+            </div>
+            <div class="explore-card">
+              <div class="explore-card-top">
+                <div class="group-avatar" style="background:#DB2777;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px">UX</div>
+                <div><div class="explore-card-name">Diseño UX/UI</div><div class="explore-card-cat">Arte</div></div>
+              </div>
+              <div class="explore-card-foot"><span class="explore-card-members">145 miembros</span><button class="btn-join">Unirse</button></div>
+            </div>
+            <div class="explore-card">
+              <div class="explore-card-top">
+                <div class="group-avatar" style="background:#B45309;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px">LM</div>
+                <div><div class="explore-card-name">Literatura Moderna</div><div class="explore-card-cat">Humanidades</div></div>
+              </div>
+              <div class="explore-card-foot"><span class="explore-card-members">123 miembros</span><button class="btn-join">Unirse</button></div>
+            </div>
+            <div class="explore-card">
+              <div class="explore-card-top">
+                <div class="group-avatar" style="background:#DC2626;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px">FU</div>
+                <div><div class="explore-card-name">Fútbol Universitario</div><div class="explore-card-cat">Deportes</div></div>
+              </div>
+              <div class="explore-card-foot"><span class="explore-card-members">201 miembros</span><button class="btn-join">Unirse</button></div>
+            </div>
+            <div class="explore-card">
+              <div class="explore-card-top">
+                <div class="group-avatar" style="background:#1D4ED8;border-radius:8px;font-family:'Outfit',sans-serif;font-weight:800;font-size:12px">RA</div>
+                <div><div class="explore-card-name">Robótica Aplicada</div><div class="explore-card-cat">Ingeniería</div></div>
+              </div>
+              <div class="explore-card-foot"><span class="explore-card-members">178 miembros</span><button class="btn-join">Unirse</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRUPO DETALLE -->
+        <div class="page" id="page-grupo-detalle">
+          <div class="group-detail-card">
+            <div class="group-detail-header"></div>
+            <div class="group-detail-info">
+              <div class="group-detail-top">
+                <div class="group-detail-icon">DW</div>
+                <div style="flex:1">
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                    <span class="group-detail-name">Desarrollo Web Moderno</span>
+                    <span class="role-tag tag-ingenieria">Ingeniería</span>
+                  </div>
+                  <div style="font-size:13px;color:var(--gray)">234 miembros</div>
+                </div>
+                <button class="btn-orange">Publicar</button>
+                <button class="btn-outline" style="font-size:12px">Salir del grupo</button>
+              </div>
+              <p class="group-detail-desc">Grupo dedicado al aprendizaje y discusión de las últimas tecnologías web, frameworks y mejores prácticas de desarrollo.</p>
+            </div>
+            <div class="group-tabs">
+              <div class="group-tab active" onclick="switchGroupTab(this,'feed')">Feed</div>
+              <div class="group-tab" onclick="switchGroupTab(this,'ejercicios')">Ejercicios</div>
+              <div class="group-tab" onclick="switchGroupTab(this,'reuniones')">Reuniones</div>
+              <div class="group-tab" onclick="switchGroupTab(this,'actividad')">Actividad</div>
+            </div>
+            <div class="group-tab-content active" id="gtab-feed">
+              <div class="composer" style="margin-bottom:14px">
+                <div class="composer-row">
+                  <div class="avatar" style="background:#E0834A;flex-shrink:0">JD</div>
+                  <textarea placeholder="Comparte algo con el grupo..." rows="1"></textarea>
+                </div>
+                <div class="composer-actions">
+                  <div class="composer-icons">
+                    <button class="icon-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></button>
+                  </div>
+                  <button class="btn-orange">Publicar</button>
+                </div>
+              </div>
+              <div class="post" style="margin-bottom:0">
+                <div class="post-header">
+                  <div class="avatar" style="background:#5CB85C">CR</div>
+                  <div class="post-meta">
+                    <div style="display:flex;align-items:center;gap:6px"><span class="name">Carlos Ruiz</span><span class="role-tag tag-profesor">Profesor</span></div>
+                    <div class="time">hace 3h</div>
+                  </div>
+                </div>
+                <p class="post-text">Excelente sesión de hoy sobre React Hooks. Aquí les comparto el código que vimos en clase.</p>
+                <div style="background:var(--gray-bg);border-radius:8px;padding:12px;font-family:monospace;font-size:12px;color:var(--gray-dark);margin-bottom:12px">
+                  <span style="color:#7C3AED">const</span> <span style="color:#1D4ED8">[count, setCount]</span> = <span style="color:#059669">useState</span>(0);<br>
+                  <span style="color:#7C3AED">useEffect</span>(() => &#123;<br>
+                  &nbsp;&nbsp;document.title = `Clicks: ${'{'}count{'}'}`;<br>
+                  &#125;, [count]);
+                </div>
+                <div class="post-actions">
+                  <button class="action-btn">💬 8 comentarios</button>
+                  <button class="action-btn">❤️ 24 reacciones</button>
+                </div>
+              </div>
+            </div>
+            <div class="group-tab-content" id="gtab-ejercicios">
+              <div class="exercise-card">
+                <div class="exercise-top">
+                  <div>
+                    <div class="exercise-title">Proyecto Final - Sistema de Gestión</div>
+                    <div class="exercise-desc">Crear una aplicación web completa con React y Node.js</div>
+                  </div>
+                  <span class="status-badge status-pending">Pendiente</span>
+                </div>
+                <div class="exercise-meta">
+                  <span style="display:flex;align-items:center;gap:3px"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>15 May 2026</span>
+                  <span>45/67 entregas</span>
+                </div>
+                <div class="exercise-actions">
+                  <button class="btn-sm primary"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>Subir entrega</button>
+                  <button class="btn-sm"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>Descargar material</button>
+                  <button class="btn-sm">Ver detalles →</button>
+                </div>
+              </div>
+              <div class="exercise-card">
+                <div class="exercise-top">
+                  <div>
+                    <div class="exercise-title">Ejercicio 3 - APIs RESTful</div>
+                    <div class="exercise-desc">Implementar una API REST con autenticación JWT</div>
+                  </div>
+                  <span class="status-badge status-progress">En progreso</span>
+                </div>
+                <div class="exercise-meta">
+                  <span>📅 8 May 2026</span>
+                  <span>52/67 entregas</span>
+                </div>
+                <div class="exercise-actions">
+                  <button class="btn-sm primary">Subir entrega</button>
+                  <button class="btn-sm">Descargar material</button>
+                </div>
+              </div>
+              <div class="exercise-card">
+                <div class="exercise-top">
+                  <div>
+                    <div class="exercise-title">Taller - CSS Grid y Flexbox</div>
+                    <div class="exercise-desc">Maqueta 3 diseños responsivos</div>
+                  </div>
+                  <span class="status-badge status-done">Completado</span>
+                </div>
+                <div class="exercise-meta">
+                  <span>✅ Completado · 67/67 entregas</span>
+                </div>
+              </div>
+            </div>
+            <div class="group-tab-content" id="gtab-reuniones">
+              <div class="meeting-card">
+                <div class="meeting-top">
+                  <div class="meeting-date-badge"><span>MAY</span>2</div>
+                  <div class="meeting-info">
+                    <h4>Revisión de Proyectos Finales</h4>
+                    <div class="meeting-meta">
+                      <span>📅 Viernes, 2 de mayo de 2026</span>
+                      <span>🕓 4:00 PM - 6:00 PM</span>
+                      <span>📍 Aula 305 - Edificio de Ingeniería</span>
+                      <span>👥 42 personas confirmadas</span>
+                    </div>
+                  </div>
+                  <span class="meeting-type type-presencial">Presencial</span>
+                </div>
+                <div style="display:flex;gap:8px">
+                  <button class="btn-sm primary">Confirmar asistencia</button>
+                  <button class="btn-sm">Agregar al calendario</button>
+                </div>
+              </div>
+              <div class="meeting-card">
+                <div class="meeting-top">
+                  <div class="meeting-date-badge"><span>MAY</span>7</div>
+                  <div class="meeting-info">
+                    <h4>Sesión de Dudas - APIs y Backend</h4>
+                    <div class="meeting-meta">
+                      <span>📅 Miércoles, 7 de mayo de 2026</span>
+                      <span>🕓 3:00 PM - 4:30 PM</span>
+                      <span>🖥️ Google Meet</span>
+                      <span>👥 38 personas confirmadas</span>
+                    </div>
+                  </div>
+                  <span class="meeting-type type-virtual">Virtual</span>
+                </div>
+                <div style="display:flex;gap:8px">
+                  <button class="btn-sm primary">Confirmar asistencia</button>
+                  <button class="btn-sm">Agregar al calendario</button>
+                </div>
+              </div>
+            </div>
+            <div class="group-tab-content" id="gtab-actividad">
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="avatar" style="background:#5CB85C;width:32px;height:32px;font-size:12px">CR</div>
+                  <div style="font-size:13px"><strong>Carlos Ruiz</strong> subió un nuevo ejercicio <a href="#" style="color:var(--orange)">Proyecto Final - Sistema de Gestión</a></div>
+                  <span style="font-size:11px;color:var(--gray);margin-left:auto">hace 2h</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="avatar" style="background:#4A90D9;width:32px;height:32px;font-size:12px">MG</div>
+                  <div style="font-size:13px"><strong>María González</strong> comentó en <a href="#" style="color:var(--orange)">Ejercicio 3 - APIs RESTful</a></div>
+                  <span style="font-size:11px;color:var(--gray);margin-left:auto">hace 4h</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="avatar" style="background:#D97C4A;width:32px;height:32px;font-size:12px">AM</div>
+                  <div style="font-size:13px"><strong>Ana Martínez</strong> programó una reunión <a href="#" style="color:var(--orange)">Revisión de Proyectos Finales</a></div>
+                  <span style="font-size:11px;color:var(--gray);margin-left:auto">hace 6h</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px">
+                  <div class="avatar" style="background:#7C3AED;width:32px;height:32px;font-size:12px">DM</div>
+                  <div style="font-size:13px"><strong>Diego Morales</strong> compartió un recurso <a href="#" style="color:var(--orange)">Guía de mejores prácticas React</a></div>
+                  <span style="font-size:11px;color:var(--gray);margin-left:auto">Ayer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button onclick="showPage('grupos')" class="btn-outline" style="margin-top:8px">← Volver a grupos</button>
+        </div>
+
+        <!-- MENSAJES -->
+        <div class="page" id="page-mensajes" style="height:calc(100vh - 57px);margin:-20px;">
+          <div class="messages-layout" style="height:100%">
+            <div class="conversations" id="convList">
+              <div class="conv-header">
+                <h2>Mensajes</h2>
+                <div class="search-input">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                  <input placeholder="Buscar conversaciones...">
+                </div>
+              </div>
+              <div class="conv-item active" onclick="openChat('María González','Ing. Industrial','#4A90D9','MG')">
+                <div class="avatar" style="background:#4A90D9">MG</div>
+                <div class="conv-info">
+                  <div class="conv-name">María González</div>
+                  <div class="conv-preview">Perfecto, nos vemos mañana</div>
+                </div>
+                <div class="conv-meta"><div class="conv-time">10:50 AM</div><div class="conv-dot"></div></div>
+              </div>
+              <div class="conv-item" onclick="openChat('Carlos Ruiz','Ciencias','#5CB85C','CR')">
+                <div class="avatar" style="background:#5CB85C">CR</div>
+                <div class="conv-info">
+                  <div class="conv-name">Carlos Ruiz</div>
+                  <div class="conv-preview">Gracias por la ayuda!</div>
+                </div>
+                <div class="conv-meta"><div class="conv-time">Ayer</div></div>
+              </div>
+              <div class="conv-item" onclick="openChat('Ana Martínez','Diseño','#D97C4A','AM')">
+                <div class="avatar" style="background:#D97C4A">AM</div>
+                <div class="conv-info">
+                  <div class="conv-name">Ana Martínez</div>
+                  <div class="conv-preview">¿Tienes las notas?</div>
+                </div>
+                <div class="conv-meta"><div class="conv-time">Mar 28</div><div class="conv-dot"></div></div>
+              </div>
+            </div>
+            <div class="chat-area">
+              <div class="chat-header">
+                <button class="icon-btn" id="backBtn" onclick="showConvList()" style="display:none">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                </button>
+                <div class="avatar" style="background:#4A90D9" id="chatAvatar">MG</div>
+                <div class="chat-header-info">
+                  <h3 id="chatName">María González</h3>
+                  <p id="chatSub">Ing. Industrial</p>
+                </div>
+              </div>
+              <div class="chat-messages" id="chatMessages">
+                <div class="msg">
+                  <div class="avatar" style="background:#4A90D9;width:30px;height:30px;font-size:11px;flex-shrink:0">MG</div>
+                  <div><div class="msg-bubble">Hola! ¿Cómo vas con el proyecto?</div><div class="msg-time">10:15 AM</div></div>
+                </div>
+                <div class="msg mine">
+                  <div class="avatar" style="background:#E0834A;width:30px;height:30px;font-size:11px;flex-shrink:0">JD</div>
+                  <div><div class="msg-bubble">Muy bien! Ya terminé la primera parte</div><div class="msg-time">10:18 AM</div></div>
+                </div>
+                <div class="msg">
+                  <div class="avatar" style="background:#4A90D9;width:30px;height:30px;font-size:11px;flex-shrink:0">MG</div>
+                  <div><div class="msg-bubble">Excelente! ¿Nos reunimos mañana para revisar todo?</div><div class="msg-time">10:20 AM</div></div>
+                </div>
+                <div class="msg mine">
+                  <div class="avatar" style="background:#E0834A;width:30px;height:30px;font-size:11px;flex-shrink:0">JD</div>
+                  <div><div class="msg-bubble">Perfecto, nos vemos mañana</div><div class="msg-time">10:30 AM</div></div>
+                </div>
+              </div>
+              <div class="chat-input">
+                <button class="icon-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"/></svg></button>
+                <button class="icon-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg></button>
+                <input type="text" placeholder="Escribe un mensaje..." id="msgInput" onkeydown="if(event.key==='Enter')sendMsg()">
+                <button class="send-btn" onclick="sendMsg()">
+                  <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NOTIFICACIONES -->
+        <div class="page" id="page-notificaciones">
+          <div style="background:white;border-radius:12px;border:1px solid var(--border);padding:16px">
+            <div class="filter-chips" style="margin-bottom:16px">
+              <div class="chip active">Todas</div>
+              <div class="chip">Menciones</div>
+              <div class="chip">Grupos</div>
+              <div class="chip">Mensajes</div>
+              <div class="chip">Eventos</div>
+            </div>
+            <div class="notif-item">
+              <div class="avatar" style="background:#4A90D9;flex-shrink:0">MG</div>
+              <div style="flex:1">
+                <div class="notif-text"><strong>María González</strong> comentó tu publicación</div>
+                <div class="notif-time">hace 30 min</div>
+              </div>
+              <div class="notif-dot"></div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon" style="flex-shrink:0">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+              </div>
+              <div style="flex:1">
+                <div class="notif-text"><strong>Nuevo evento:</strong> Muestra de Talentos · Hoy, 29 abr · 8:00 PM · Coliseo Universitario</div>
+                <div class="notif-time">hace 1h</div>
+              </div>
+              <div class="notif-dot"></div>
+            </div>
+            <div class="notif-item">
+              <div class="avatar" style="background:#5CB85C;flex-shrink:0">CR</div>
+              <div style="flex:1">
+                <div class="notif-text"><strong>Carlos Ruiz</strong> publicó en el grupo Desarrollo Web Moderno</div>
+                <div class="notif-time">hace 2h</div>
+              </div>
+              <div class="notif-dot"></div>
+            </div>
+            <div class="notif-item">
+              <div class="avatar" style="background:#D97C4A;flex-shrink:0">AM</div>
+              <div style="flex:1">
+                <div class="notif-text"><strong>Ana Martínez</strong> te envió un mensaje</div>
+                <div class="notif-time">hace 3h</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-icon" style="flex-shrink:0">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+              </div>
+              <div style="flex:1">
+                <div class="notif-text"><strong>Nuevo evento:</strong> Defensa de Proyectos de Grado · 5 may · 10:00 AM · Auditorio Principal</div>
+                <div class="notif-time">hace 5h</div>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="avatar" style="background:#7C3AED;flex-shrink:0">LT</div>
+              <div style="flex:1">
+                <div class="notif-text"><strong>Luis Torres</strong> reaccionó a tu publicación</div>
+                <div class="notif-time">Ayer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EVENTOS -->
+        <div class="page" id="page-eventos">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+            <div class="filter-chips" style="margin:0">
+              <div class="chip active">Próximos</div>
+              <div class="chip">Esta semana</div>
+              <div class="chip">Este mes</div>
+              <div class="chip">Pasados</div>
+            </div>
+            <button class="btn-orange">
+              <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+              Publicar evento
+            </button>
+          </div>
+
+          <div class="event-card">
+            <div class="event-banner" style="background:linear-gradient(135deg,#1a1a2e,#b8760a)">
+              <div style="text-align:center;padding:20px">
+                <div style="font-size:13px;letter-spacing:2px;opacity:0.8;margin-bottom:4px">✨ GRAN EVENTO</div>
+                <div style="font-size:32px;font-weight:900;text-shadow:2px 2px 0 rgba(0,0,0,0.4)">Muestra de<br>TALENTOS ⭐</div>
+              </div>
+              <div class="event-date-badge"><span>ABR</span>29</div>
+            </div>
+            <div class="event-body">
+              <div class="event-title">Muestra de Talentos</div>
+              <div class="event-uni">Universidad San Buenaventura</div>
+              <div class="event-loc"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Coliseo Universitario</div>
+              <p class="event-desc">Únete a la muestra anual de talentos donde estudiantes de todas las facultades demuestran sus habilidades artísticas y deportivas.</p>
+              <div class="event-pub">
+                <div class="avatar" style="background:#4A90D9;width:24px;height:24px;font-size:10px">MG</div>
+                <p>Publicado por <strong>María González</strong> <span class="role-tag tag-director" style="font-size:10px">Directivo</span></p>
+              </div>
+              <div class="event-stats">👥 42 personas van · ⭐ 18 interesadas</div>
+              <div class="event-actions">
+                <button class="btn-outline"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Asistiré</button>
+                <button class="btn-orange">⭐ Me interesa</button>
+                <button class="btn-outline"><svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg> Compartir</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-banner" style="background:linear-gradient(135deg,#1e3a5f,#2563EB)">
+              <div style="text-align:center"><div style="font-size:26px;font-weight:900">Defensa de<br>Proyectos de Grado</div><div style="font-size:13px;opacity:0.8;margin-top:6px">🎓 Ingeniería</div></div>
+              <div class="event-date-badge"><span>MAY</span>5</div>
+            </div>
+            <div class="event-body">
+              <div class="event-title">Defensa de Proyectos de Grado</div>
+              <div class="event-uni">Universidad San Buenaventura</div>
+              <div class="event-loc">📍 Auditorio Principal</div>
+              <p class="event-desc">Presentación de los proyectos de grado destacados de las carreras de ingeniería. Espacio abierto para toda la comunidad.</p>
+              <div class="event-pub">
+                <div class="avatar" style="background:#5CB85C;width:24px;height:24px;font-size:10px">CR</div>
+                <p>Publicado por <strong>Carlos Ruiz</strong> <span class="role-tag tag-profesor" style="font-size:10px">Profesor</span></p>
+              </div>
+              <div class="event-stats">👥 28 personas van · ⭐ 15 interesadas</div>
+              <div class="event-actions">
+                <button class="btn-outline">✅ Asistiré</button>
+                <button class="btn-orange">⭐ Me interesa</button>
+                <button class="btn-outline">🔗 Compartir</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-card">
+            <div class="event-banner" style="background:linear-gradient(135deg,#1a1a1a,#B91C1C)">
+              <div style="text-align:center"><div style="font-size:28px;font-weight:900">⚽ Torneo de Fútbol<br>Interfacultades</div></div>
+              <div class="event-date-badge"><span>MAY</span>10</div>
+            </div>
+            <div class="event-body">
+              <div class="event-title">Torneo de Fútbol Interfacultades</div>
+              <div class="event-uni">Universidad San Buenaventura</div>
+              <div class="event-loc">📍 Cancha Principal</div>
+              <p class="event-desc">Campeonato de fútbol entre las diferentes facultades. ¡Ven a apoyar a tu equipo!</p>
+              <div class="event-pub">
+                <div class="avatar" style="background:#D97C4A;width:24px;height:24px;font-size:10px">AM</div>
+                <p>Publicado por <strong>Ana Martínez</strong> <span class="role-tag tag-estudiante" style="font-size:10px">Estudiante</span></p>
+              </div>
+              <div class="event-stats">👥 67 personas van · ⭐ 34 interesadas</div>
+              <div class="event-actions">
+                <button class="btn-outline">✅ Asistiré</button>
+                <button class="btn-orange">⭐ Me interesa</button>
+                <button class="btn-outline">🔗 Compartir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUSCAR PERSONAS -->
+        <div class="page" id="page-buscar">
+          <div style="background:white;border-radius:12px;border:1px solid var(--border);padding:14px;margin-bottom:16px">
+            <div class="search-input" style="margin-bottom:12px">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+              <input id="people-search-input" placeholder="Busca estudiantes por nombre, carrera o usuario..." autocomplete="off">
+            </div>
+            <div class="filter-chips" style="margin:0">
+              <div class="chip active">Todos</div>
+              <div class="chip">Ingeniería</div>
+              <div class="chip">Ciencias</div>
+              <div class="chip">Arte</div>
+              <div class="chip">Humanidades</div>
+              <div class="chip">Deportes</div>
+            </div>
+          </div>
+
+          <div class="section-title">Estudiantes que quizás conozcas</div>
+          <div class="people-grid">
+            <div class="person-card">
+              <div class="avatar" style="background:#DC2626">SR</div>
+              <div class="person-name">Sofía Ramírez</div>
+              <span class="person-career tag-ingenieria">Ing. de Sistemas</span>
+              <div class="person-sem">Semestre 6</div>
+              <div class="person-mutual">3 amigos en común</div>
+              <button class="btn-view">Seguir</button>
+            </div>
+            <div class="person-card">
+              <div class="avatar" style="background:#1D4ED8">DM</div>
+              <div class="person-name">Diego Morales</div>
+              <span class="person-career tag-ciencias">Medicina</span>
+              <div class="person-sem">Semestre 8</div>
+              <div class="person-mutual">5 amigos en común</div>
+              <button class="btn-view">Seguir</button>
+            </div>
+            <div class="person-card">
+              <div class="avatar" style="background:#DB2777">LJ</div>
+              <div class="person-name">Laura Jiménez</div>
+              <span class="person-career tag-arte">Diseño Gráfico</span>
+              <div class="person-sem">Semestre 4</div>
+              <div class="person-mutual">2 amigos en común</div>
+              <button class="btn-view">Seguir</button>
+            </div>
+            <div class="person-card">
+              <div class="avatar" style="background:#059669">AL</div>
+              <div class="person-name">Andrés López</div>
+              <span class="person-career tag-ingenieria">Ing. Civil</span>
+              <div class="person-sem">Semestre 7</div>
+              <div class="person-mutual">4 amigos en común</div>
+              <button class="btn-view" style="background:var(--gray-bg);color:var(--gray-dark)">Siguiendo</button>
+            </div>
+            <div class="person-card">
+              <div class="avatar" style="background:#7C3AED">VT</div>
+              <div class="person-name">Valentina Torres</div>
+              <span class="person-career tag-ciencias">Ciencias</span>
+              <div class="person-sem">Semestre 5</div>
+              <div class="person-mutual">1 amigo en común</div>
+              <button class="btn-view">Seguir</button>
+            </div>
+            <div class="person-card">
+              <div class="avatar" style="background:#B45309">SP</div>
+              <div class="person-name">Santiago Pérez</div>
+              <span class="person-career tag-arte">Arte</span>
+              <div class="person-sem">Semestre 3</div>
+              <div class="person-mutual">6 amigos en común</div>
+              <button class="btn-view">Seguir</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /feed -->
+
+      <!-- RIGHT PANEL -->
+      <div class="right-panel">
+        <div class="rp-title">Grupos sugeridos</div>
+        <div class="suggested-group">
+          <div class="group-avatar">DW</div>
+          <div class="sg-info"><div class="sg-name">Desarrollo Web Moderno</div><div class="sg-members">234 miembros</div></div>
+          <button class="btn-join">Unirse</button>
+        </div>
+        <div class="suggested-group">
+          <div class="group-avatar" style="background:#4A90D9">IA</div>
+          <div class="sg-info"><div class="sg-name">Inteligencia Artificial</div><div class="sg-members">189 miembros</div></div>
+          <button class="btn-join">Unirse</button>
+        </div>
+        <div class="suggested-group">
+          <div class="group-avatar" style="background:#5CB85C">ET</div>
+          <div class="sg-info"><div class="sg-name">Emprendimiento Tech</div><div class="sg-members">156 miembros</div></div>
+          <button class="btn-join">Unirse</button>
+        </div>
+
+        <div class="rp-title" style="margin-top:20px">Estudiantes que quizás conozcas</div>
+        <div class="suggested-person">
+          <div class="avatar" style="background:#4A90D9">MG</div>
+          <div class="sg-info"><div class="sg-name">María González</div><div class="sg-members">Ing. Industrial</div></div>
+        </div>
+        <div class="suggested-person">
+          <div class="avatar" style="background:#5CB85C">CR</div>
+          <div class="sg-info"><div class="sg-name">Carlos Ruiz</div><div class="sg-members">Ciencias</div></div>
+        </div>
+        <div class="suggested-person">
+          <div class="avatar" style="background:#D97C4A">AM</div>
+          <div class="sg-info"><div class="sg-name">Ana Martínez</div><div class="sg-members">Diseño</div></div>
+        </div>
+        <button class="btn-follow">Seguir</button>
+
+        <div style="margin-top:24px;font-size:10px;color:var(--gray-light);text-align:center">
+          UniSocial © 2026 · Universidad San Buenaventura
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM NAV (mobile) -->
+<nav class="bottom-nav">
+  <div class="bottom-nav-items">
+    <div class="bn-item active" onclick="showPage('inicio')" id="bn-inicio">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      Inicio
+    </div>
+    <div class="bn-item" onclick="showPage('grupos')" id="bn-grupos">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      Grupos
+    </div>
+    <div class="bn-item" onclick="showPage('mensajes')" id="bn-mensajes">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+      <div class="bn-badge">3</div>
+      Mensajes
+    </div>
+    <div class="bn-item" onclick="showPage('notificaciones')" id="bn-notificaciones">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+      <div class="bn-badge">5</div>
+      Alertas
+    </div>
+    <div class="bn-item" onclick="showPage('perfil')" id="bn-perfil">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      Perfil
+    </div>
+  </div>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>
